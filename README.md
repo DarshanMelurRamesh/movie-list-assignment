@@ -4,13 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Documentation
 Application displays the movie list and its details based on searched parameter.
+
 Data for the application is fetched from 'https://themoviedb.org/'.
 
 Application consists of 4 components apart from app-component
 1. landing component - Consists of remaining 3 components.
 2. searchbar component - Consists of search bar and search button
 3. movielist component - Displays list of movies with certain informations based on searched parameter.
-4. movie-details component - Display complete details of particular movie selected from the movielist component.
+4. movie-details component - Displays complete details of particular movie selected from the movielist component.
 
 Movie list API : 
 API-URL : https://api.themoviedb.org/3/search/movie?api_key={yourapikey}&query={searchedmoviename}"
