@@ -14,10 +14,12 @@ Application consists of 4 components apart from app-component
 4. movie-details component - Displays complete details of particular movie selected from the movielist component.
 
 Movie list API : 
+
 API-URL : https://api.themoviedb.org/3/search/movie?api_key={yourapikey}&query={searchedmoviename}"
 Method : GET
 
 Movie details API :
+
 API-URL : "https://api.themoviedb.org/3/movie/{movieid}?api_key={yourapikey}"
 Method : GET
 
