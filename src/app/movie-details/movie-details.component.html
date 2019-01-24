@@ -1,0 +1,37 @@
+<!-- Display Complete movie details -->
+<div class="movie-details-wrapper">
+  <div class="movie-details-div">
+    <div class="movie-details-backgrd">
+      <div class="error-msg text-align-center">{{dataService.errorMesage}}</div>
+      <div *ngIf="(movieDetails | json) != '{}'">
+        <h1 class="margin0 text-align-center">{{movieDetails.title}}</h1>
+        <div class="movie-imgage-div">
+          <img src="{{(movieDetails.poster_path != null)? 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+ movieDetails.poster_path : 'assets/images/thumbnail.jpg'}}" class="movie-image" alt="Movie Image"/>    
+        </div>
+        <p><label class="movie-details-label">Description : </label> {{(movieDetails.overview != "")? movieDetails.overview : 'NA'}}</p>
+        <p><label class="movie-details-label">Adult Movie : </label> {{(movieDetails.adult)? 'Yes' : 'No'}}</p>
+        <p><label class="movie-details-label">Status : </label> {{movieDetails.status}}</p>
+        <p><label class="movie-details-label">Release Date : </label> {{(movieDetails.release_date != "")? (movieDetails.release_date | date: 'dd MMM yyyy') : 'NA'}}</p>
+        <p><label class="movie-details-label">Movie Revenue : </label> {{movieDetails.revenue}}</p>
+        <p><label class="movie-details-label">Movie Budget : </label> {{movieDetails.budget}}</p>
+        <p><label class="movie-details-label">Movie Rating : </label> {{movieDetails.vote_average}}</p>
+        <p><label class="movie-details-label">Vote Count : </label> {{movieDetails.vote_count}}</p>
+        <p><label class="movie-details-label">Runtime : </label> {{(movieDetails.runtime != null)? movieDetails.runtime : 'NA'}}</p>
+        <p><label class="movie-details-label">Tagline : </label> {{(movieDetails.tagline != "")? movieDetails.tagline : 'NA'}}</p>
+        <p *ngIf="movieDetails.genres.length > 0"><label class="movie-details-label">Genres :</label> {{movieDetails.genres | arrayToString}}</p>
+        <div *ngIf="movieDetails.production_companies.length > 0">
+          <label class="movie-details-label">Production companies : </label>
+          <ul class="margin0">
+            <li *ngFor="let prodComp of movieDetails.production_companies">{{prodComp.name}}</li>
+          </ul>
+        </div>
+      </div>
+
+    <!-- Gif loader displayed when api is fetching response -->
+    <div class="loader-gif" *ngIf="dataService.movieDetailsFlag">
+    <img src="assets/images/loading.gif" alt="Loader"/>
+    </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- Display the list of movies obtanied from searched result -->
+<div class="movie-list-wrapper">
+  <ul class="movie-list">
+    <li *ngFor="let listData of movieList" (click)="completeMovieDetails(listData.id)">
+      <div>
+        <div>
+          <div class="movie-img-div">
+              <img src="{{(listData.poster_path != null)? 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+ listData.poster_path : 'assets/images/thumbnail.jpg'}}" class="movie-img" alt="Movie Tumbnail"/>
+          </div>
+          <div class="movie-detials">
+            <div class="padd-left">
+              <p>{{listData.title}}</p>
+              <p>Rated : {{listData.vote_average}}/10</p>
+              <p>Released on : {{(listData.release_date != "")? (listData.release_date | date: 'dd MMM yyyy') : 'NA'}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="movie-desc" *ngIf="listData.overview != ''">
+          {{listData.overview}}
+        </div>
+      </div>
+    </li>
+  </ul>
+
+   <!-- Gif loader displayed when api is fetching response -->
+  <div class="loader-gif" *ngIf="dataService.movieListFlag">
+    <img src="assets/images/loading.gif" alt="Loader"/>
+  </div>
+
+</div>

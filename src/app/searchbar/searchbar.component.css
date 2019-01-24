@@ -1,0 +1,21 @@
+
+
+.search-bar-wrapper{
+    text-align: center;
+    padding: 10px 0;
+    background-color: #cecece;
+    border-bottom: 1px solid #b7b7b7;
+}
+
+.search-bar-wrapper>input{
+    height: 35px;
+    width: 20%;
+    padding: 0 10px;
+}
+
+.search-bar-wrapper>button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding-left: 20px;
+}
